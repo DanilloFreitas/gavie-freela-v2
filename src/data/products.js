@@ -49,19 +49,6 @@ export const products = [
     sizes: SIZES,
   },
   {
-    id: 'regata-canelada',
-    name: 'Regata Canelada',
-    price: 74.9,
-    badge: 'Nova',
-    image: 'regata-canelada',
-    alt: 'Regata canelada Gavie vista de frente',
-    focus: '15%',
-    // Só existe foto real na cor verde — o swatch "Areia" foi removido até
-    // termos uma foto dessa peça nessa cor (ver nota no topo do arquivo).
-    colors: [{ name: 'Verde oliva claro', hex: '#C7C0A3' }],
-    sizes: SIZES,
-  },
-  {
     id: 'regata-com-strass',
     name: 'Regata com Strass',
     price: 84.9,
@@ -73,6 +60,19 @@ export const products = [
       { name: 'Areia', hex: '#DCC7A6' },
       { name: 'Off-white', hex: '#F7F4EE', image: 'regata-com-strass-off-white' },
     ],
+    sizes: SIZES,
+  },
+  {
+    id: 'regata-canelada',
+    name: 'Regata Canelada',
+    price: 74.9,
+    badge: 'Nova',
+    image: 'regata-canelada',
+    alt: 'Regata canelada Gavie vista de frente',
+    focus: '15%',
+    // Só existe foto real na cor verde — o swatch "Areia" foi removido até
+    // termos uma foto dessa peça nessa cor (ver nota no topo do arquivo).
+    colors: [{ name: 'Verde oliva claro', hex: '#C7C0A3' }],
     sizes: SIZES,
   },
 ];
