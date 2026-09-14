@@ -678,50 +678,7 @@
 
   @media (min-width: 1024px) {
     .collection {
-      position: relative;
-      overflow: hidden;
       padding-block: 56px 112px;
-    }
-
-    /* Garante que o título e os cards fiquem acima da marca d'água. */
-    .collection > .container {
-      position: relative;
-      z-index: 1;
-    }
-  }
-
-  /* "Gavie" repetido várias vezes como papel de parede atrás de toda a
-     seção — os cards ficam sobrepostos por cima. Só no desktop, que é
-     onde sobrava espaço em branco; no mobile os cards já preenchem a
-     tela toda. */
-  .collection__watermark {
-    display: none;
-    margin: 0;
-  }
-
-  @media (min-width: 1024px) {
-    .collection__watermark {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .collection__watermark p {
-      margin: 0;
-      font-family: var(--font-display);
-      font-weight: 200;
-      font-size: clamp(4.5rem, 9vw, 8.5rem);
-      line-height: 1;
-      letter-spacing: 0.04em;
-      color: var(--color-gold);
-      opacity: 0.16;
-      white-space: nowrap;
     }
   }
 
