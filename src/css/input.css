@@ -1182,6 +1182,28 @@
     }
   }
 
+  /* Sem mouse não existe hover — dispara a mesma troca de linhas ao
+     tocar e segurar o botão (funciona porque main.js liga um listener de
+     touchstart no body, exigido pelo iOS pra :active funcionar). */
+  @media (hover: none) {
+    .about__cta:active .about__cta-row:not(.about__cta-row--alt) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      margin-top: -0.6em;
+      justify-content: center;
+    }
+
+    .about__cta:active .about__cta-row:not(.about__cta-row--alt) span {
+      transform: translateY(calc(100% + 14px));
+    }
+
+    .about__cta:active .about__cta-row--alt span {
+      transform: translateY(0);
+    }
+  }
+
   .about__cta:active {
     transform: scale(0.97);
   }
