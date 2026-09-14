@@ -1097,6 +1097,11 @@
     color: var(--color-ink-soft);
     max-width: 422px;
     margin: 0;
+    /* Texto centralizado quebrando naturalmente deixava linhas de
+       larguras bem desiguais (uma linha quase cheia, a última com só
+       "você é." sozinha) — text-wrap: balance distribui as palavras pra
+       as linhas ficarem com larguras parecidas. */
+    text-wrap: balance;
   }
 
   /* Botão sólido e mais moderno (pílula, sem borda), com o texto saindo
