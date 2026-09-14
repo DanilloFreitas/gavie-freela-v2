@@ -1097,10 +1097,11 @@
     color: var(--color-ink-soft);
     max-width: 422px;
     margin: 0;
-    /* Texto centralizado quebrando naturalmente deixava linhas de
-       larguras bem desiguais (uma linha quase cheia, a última com só
-       "você é." sozinha) — text-wrap: balance distribui as palavras pra
-       as linhas ficarem com larguras parecidas. */
+    /* Texto centralizado sempre deixa as duas bordas "picadas" (cada
+       linha tem um tamanho diferente) — isso ainda parecia torto mesmo
+       com o balanceamento das linhas. Alinhado à esquerda fica com uma
+       borda reta; título e botão continuam centralizados. */
+    text-align: left;
     text-wrap: balance;
   }
 
