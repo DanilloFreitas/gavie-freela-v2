@@ -720,11 +720,11 @@
 
   @media (min-width: 1024px) {
     .product-grid {
-      /* No desktop os cards tinham mais de 900px de altura — maiores que
-         a própria tela. Um teto de largura (com o grid centralizado)
-         encolhe cada card proporcionalmente, já que a foto segue 4:5. */
-      max-width: 720px;
-      margin-inline: auto;
+      /* Os 4 produtos lado a lado numa única fileira no desktop — cada
+         card fica menor (e mais baixo, já que a foto segue 4:5) e
+         preenche a largura do container sem sobrar vão vazio. */
+      grid-template-columns: repeat(4, minmax(180px, 260px));
+      justify-content: center;
     }
   }
 
