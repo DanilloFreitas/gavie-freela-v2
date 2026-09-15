@@ -4,15 +4,7 @@ import { WHATSAPP_NUMBER } from '../config.js';
 const buildLink = (message) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-/**
- * Liga cores + tamanhos ao CTA de WhatsApp de cada card.
- * A mensagem é remontada a cada seleção.
- */
-/**
- * iOS Safari só aplica :active a elementos com um listener de toque
- * associado (ao elemento ou a um ancestral, ex. document.body).
- * Isso habilita o zoom por toque nas fotos dos produtos.
- */
+/** iOS só aplica :active com um listener de toque no ancestral. */
 const enableTouchActiveState = () => {
   document.body.addEventListener('touchstart', () => {}, { passive: true });
 };
@@ -44,6 +36,7 @@ const setCardImage = (card, slug) => {
   }
 };
 
+/** Liga cores + tamanhos ao CTA de WhatsApp de cada card. */
 export function initProductCards() {
   enableTouchActiveState();
 

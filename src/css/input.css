@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /* ==========================================================================
-   Design tokens — extraídos 1:1 do Figma "Gavie — Site (cópia)"
+   Design tokens
    ========================================================================== */
 @theme {
   /* Cores */
@@ -37,7 +37,7 @@
   }
 }
 
-/* Entrada "em câmera lenta" — usada no título da home e ecoada no Sobre */
+/* Entrada em câmera lenta do título */
 @keyframes slow-reveal-img {
   from {
     transform: scale(1.12);
@@ -194,8 +194,6 @@
    * Header
    * ------------------------------------------------------------------ */
   .site-header {
-    /* Estática: faz parte da Home e rola junto com a página — não é uma
-       barra fixa que acompanha o scroll para as outras seções. */
     position: static;
     z-index: 60;
     background-color: var(--color-paper);
@@ -442,8 +440,6 @@
     height: 78vh;
     max-height: 760px;
     display: flex;
-    /* No mobile o texto fica perto da base do hero (como no Figma),
-       longe do rosto da modelo, que ocupa a metade de cima da foto. */
     align-items: flex-end;
     padding-bottom: 32px;
     overflow: hidden;
@@ -468,9 +464,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* No mobile o recorte é bem mais estreito que a foto original —
-       centralizado, ele perde o rosto da modelo. No Figma o frame mobile
-       enquadra perto do rosto; ajustado à mão pra bater com isso. */
     object-position: 6% 50%;
   }
 
@@ -529,8 +522,6 @@
     }
   }
 
-  /* Marca do lótus sobre o hero — só no mobile, como no frame
-     "iPhone 13 & 14" do Figma (o desktop não tem esse selo). */
   .hero__mark {
     display: block;
     width: 56px;
@@ -553,9 +544,6 @@
     margin: 0;
   }
 
-  /* No frame mobile do Figma o hero mostra só o título + a frase de
-     destaque (sem o parágrafo intermediário) — o subtítulo aparece a
-     partir do desktop. */
   .hero__subtitle {
     display: none;
     font-size: clamp(1.0625rem, 2.2vw, 1.5rem);
@@ -614,10 +602,6 @@
     display: flex;
     width: max-content;
     animation: var(--animate-marquee);
-    /* Mantém a faixa numa camada de composição própria — sem isso,
-       navegadores às vezes "derrubam" animações infinitas de longa
-       duração (a aba fica em segundo plano por um tempo, o layer é
-       descartado) e ela trava/some até a página ser recarregada. */
     will-change: transform;
   }
 
@@ -698,10 +682,6 @@
 
   .product-grid {
     display: grid;
-    /* 2 colunas desde o celular: com o preço logo abaixo do nome (ver
-       .product-card__name), a foto + preço cabem juntos na tela mesmo
-       num card mais estreito — só cores/tamanhos/botão ficam mais
-       compactos, o que é aceitável por virem depois. */
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
@@ -720,9 +700,6 @@
 
   @media (min-width: 1024px) {
     .product-grid {
-      /* Os 4 produtos lado a lado numa única fileira no desktop — cada
-         card fica menor (e mais baixo, já que a foto segue 4:5) e
-         preenche a largura do container sem sobrar vão vazio. */
       grid-template-columns: repeat(4, minmax(180px, 260px));
       justify-content: center;
     }
@@ -752,10 +729,6 @@
 
   .product-card__media {
     position: relative;
-    /* Retrato, igual às fotos originais (3:4) — no desktop essa proporção
-       chegou a ser paisagem (607:386) num resquício do Figma, cortando
-       quase metade da peça na foto. 4:5 mantém a peça inteira visível
-       em qualquer largura de tela. */
     aspect-ratio: 4 / 5;
     overflow: hidden;
   }
@@ -764,8 +737,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Zoom mais lento e suave — a curva anterior (easeOutQuint) fazia o
-       movimento inteiro acontecer logo no início, parecendo um "salto". */
     transition: transform 1.1s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
@@ -811,10 +782,7 @@
     font-weight: 400;
     line-height: 1.15;
     margin: 0 0 14px;
-    /* Reserva espaço pra até 2 linhas: nomes mais longos (ex. "Blusa
-       Canelada Gola Alta") quebram linha numa fileira onde os outros
-       cards têm nome curto — sem essa altura mínima, as cores/tamanhos/
-       preço daquele card ficavam mais baixos que os dos vizinhos. */
+    /* Reserva altura pra 2 linhas — alinha cards com nomes mais longos. */
     min-height: calc(1.15em * 2);
   }
 
@@ -1061,8 +1029,6 @@
     margin: 0;
   }
 
-  /* Eco da entrada em câmera lenta da home: o lótus "desabrocha" e o
-     título assenta o letter-spacing quando a seção entra na viewport. */
   @media (prefers-reduced-motion: no-preference) {
     .about__mark {
       opacity: 0;
@@ -1097,26 +1063,14 @@
     color: var(--color-ink-soft);
     max-width: 422px;
     margin: 0;
-    /* Texto centralizado sempre deixa as duas bordas "picadas" (cada
-       linha tem um tamanho diferente) — isso ainda parecia torto mesmo
-       com o balanceamento das linhas. Alinhado à esquerda fica com uma
-       borda reta; título e botão continuam centralizados. */
     text-align: left;
     text-wrap: balance;
   }
 
-  /* Botão sólido e mais moderno (pílula, sem borda), com o texto saindo
-     por baixo e entrando por cima, letra a letra, no hover — inspirado em
-     https://uiverse.io/KINGFRESS/giant-deer-25. As cores continuam as do
-     site (dourado), só a linguagem visual do botão fica mais atual. */
   .about__cta {
     position: relative;
     overflow: hidden;
     max-width: 422px;
-    /* No hover, as duas linhas de texto viram position:absolute (pra
-       poder deslizar uma sobre a outra) e deixam de sustentar a altura
-       do botão — sem essa altura mínima ele achata pro tamanho do
-       padding sozinho assim que o mouse passa por cima. */
     min-height: calc(1.2em + 26px);
     border: none;
     border-radius: 999px;
@@ -1146,11 +1100,6 @@
     transition-delay: calc(var(--i) * 0.025s);
   }
 
-  /* A linha "fantasma" fica centralizada na mesma posição da linha
-     visível (não no box inteiro do botão, que inclui o padding). Pra
-     sumir de vez (sem sobrar nenhuma pontinha de letra dentro do
-     padding do botão) o deslocamento precisa cobrir 1 linha inteira
-     MAIS o padding vertical do .btn (13px) até passar da borda. */
   .about__cta-row--alt {
     position: absolute;
     left: 0;
@@ -1183,9 +1132,6 @@
     }
   }
 
-  /* Sem mouse não existe hover — dispara a mesma troca de linhas ao
-     tocar e segurar o botão (funciona porque main.js liga um listener de
-     touchstart no body, exigido pelo iOS pra :active funcionar). */
   @media (hover: none) {
     .about__cta:active .about__cta-row:not(.about__cta-row--alt) {
       position: absolute;
@@ -1284,8 +1230,6 @@
   }
 
   .footer__link {
-    /* Reset inofensivo pra funcionar tanto em <a> quanto no <button> do
-       "Guia de tamanhos" (que abre o modal em vez de navegar). */
     background: none;
     border: 0;
     padding: 0;
@@ -1354,8 +1298,6 @@
    * Guia de medidas (modal)
    * ------------------------------------------------------------------ */
   .size-guide {
-    /* O reset de margem do Tailwind zera o `margin: auto` que o navegador
-       usa pra centralizar um <dialog>; centralizamos à mão. */
     position: fixed;
     inset: 0;
     margin: auto;

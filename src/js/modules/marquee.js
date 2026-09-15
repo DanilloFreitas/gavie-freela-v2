@@ -1,9 +1,4 @@
-/**
- * A animação da faixa é 100% CSS (infinita), mas alguns navegadores
- * "derrubam" animações infinitas de longa duração quando a aba fica em
- * segundo plano por um tempo — ao voltar, a faixa trava numa posição ou
- * some. Ao readquirir foco/visibilidade, força a animação a continuar.
- */
+/** Retoma a animação da faixa se o navegador a pausar em segundo plano. */
 export function initMarquee() {
   const track = document.querySelector('.marquee__track');
   if (!track) return;

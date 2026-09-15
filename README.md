@@ -3,7 +3,6 @@
 Landing page para a **Gavie**, marca de camisetas e regatas femininas — projeto freelance, do design (Figma) à implementação.
 
 🔗 **Site:** [gavie.me](https://gavie.me)
-🎨 **Design:** [Figma](https://www.figma.com/design/V6jYHgpsTrYg7Cntw3BbgA/Gavie-%E2%80%94-Site--c%C3%B3pia-?node-id=0-1)
 
 ![Preview do site](docs/preview.jpg)
 
